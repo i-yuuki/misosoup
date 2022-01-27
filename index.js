@@ -20,16 +20,12 @@ const COURSES = {
 const app = new Vue({
   el: "#app",
   data(){
-    // for(const work of d.miso.data){
-    //   work.url = `https://miraisozoten.com/hal_tokyo/works/${work.id}/`;
-    //   work.thumbnail.url = work.thumbnail.url.replace(/dev\.miraisozoten\.com/, "miraisozoten.com").replace(/\/item\//, "/assets/images/hal/thumbnails/").replace(/\.(jpe?g|png|bmp)$/, "_640x360.jpg");
-    //   work.courseInfos = work.courses.map(id => COURSES[id]);
-    // }
-    // return d;
     return {
       works: [],
       worksSorted: [],
       school: "hal_tokyo",
+      showFilter: false,
+      filter: Object.fromEntries(Object.keys(COURSES).map(id => [id, true])),
     };
   },
   mounted(){
@@ -55,6 +51,16 @@ const app = new Vue({
       }else{
         this.worksSorted.splice(0, this.worksSorted.length, ...this.works);
       }
+    },
+    setFilter(pred){
+      for(const id of Object.keys(this.filter)){
+        this.filter[id] = pred(COURSES[id]);
+      }
+    },
+  },
+  computed: {
+    worksDisplay(){
+      return this.worksSorted.filter(work => work.courses.some(id => this.filter[id]));
     }
   },
   watch: {

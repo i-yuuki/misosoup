@@ -22,6 +22,19 @@ h1{
   text-align: center;
 }
 
+.options{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.filter{
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+}
+
 .works{
   display: grid;
   grid-template-columns: repeat(auto-fill, 23em);
@@ -86,7 +99,7 @@ h1{
   font-size: 0.7em;
 }
 
-.badges>li{
+.course-badge{
   display: inline-block;
   position: relative;
   margin-right: 0.5em;
@@ -98,11 +111,11 @@ h1{
   overflow: hidden;
 }
 
-.badges>li.has-icon{
+.course-badge.has-icon{
   padding-left: 2em;
 }
 
-.badges>li>.badge-icon{
+.course-badge>.badge-icon{
   display: inline-block;
   position: absolute;
   top: 0px;
@@ -115,19 +128,19 @@ h1{
   border-radius: 50%;
 }
 
-.badges>li.course-2{
+.course-badge.course-2{
   background-color: #880e4f;
 }
 
-.badges>li.course-2>.badge-icon{
+.course-badge.course-2>.badge-icon{
   background-color: #c2185b;
 }
 
-.badges>li.course-4{
+.course-badge.course-4{
   background-color: #004d40;
 }
 
-.badges>li.course-4>.badge-icon{
+.course-badge.course-4>.badge-icon{
   background-color: #00796b;
 }
 
