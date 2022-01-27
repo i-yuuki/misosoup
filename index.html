@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Miso Soup ― 某イベント作品をリスト表示</title>
+  <link rel="stylesheet" href="./index.css" />
+  <script defer src="./vue.min.js"></script>
+  <script defer src="./index.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1 class="text-center work__group" data-text="Miso Soup">Miso Soup 2022</h1>
+    <div class="container">
+      <h2>便利なブラウザ機能</h2>
+      <ul>
+        <li>Ctrl+クリックで新しいタブで開きます。</li>
+        <li>Ctrl+Fで検索します。</li>
+        <li>本家サイトのトップページはどちらもできないようになっています。さっすが！</li>
+      </ul>
+      <h2>凡例</h2>
+      <div class="work">
+        <div class="work-ribbon">グループ番号</div>
+        <div class="work-content">
+          <h2>作品タイトル</h2>
+          <ul class="badges">
+            <li class="course-badge course-4 has-icon">
+              <span class="badge-icon">4</span>年制は緑色
+            </li>
+            <li class="course-badge course-2 has-icon">
+              <span class="badge-icon">2</span>年制はピンク色
+            </li>
+          </ul>
+          <ul class="tags">
+            <li>#タグ</li>
+          </ul>
+          <ul class="tags">
+            <li>グループメンバー</li>
+          </ul>
+        </div>
+      </div>
+      <h2>表示オプション</h2>
+      <label>場所: </label>
+      <select v-model="school">
+        <option value="hal_tokyo">HAL東京</option>
+        <option value="hal_osaka">HAL大阪</option>
+        <option value="hal_nagoya">HAL名古屋</option>
+      </select>
+      <label>並べ替え: </label>
+      <button @click="shuffle(true)">シャッフル</button>
+      <button @click="shuffle(false)">元に戻す</button>
+    </div>
+    <div class="works">
+      <div v-for="work in worksSorted" :v-key="work.id" class="work">
+        <a :href="work.url">
+          <div class="work-img-container">
+            <img :src="work.thumbnail.url" loading="lazy" />
+          </div>
+          <div class="work-ribbon">{{ work.group_no }}</div>
+          <div class="work-content">
+            <h2>{{ work.title }}</h2>
+            <ul class="badges">
+              <li v-for="course in work.courseInfos" :class="['course-badge', 'course-' + course.years, 'has-icon']">
+                <span class="badge-icon">{{ course.years }}</span>
+                {{ course.name }}
+              </li>
+            </ul>
+            <!-- <ul class="tags">
+              <li v-for="tag in work.tags">#{{ tag }}</li>
+            </ul> -->
+            <ul class="tags">
+              <li v-for="student in work.students">{{ student }}</li>
+            </ul>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

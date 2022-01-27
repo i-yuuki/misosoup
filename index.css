@@ -1,0 +1,348 @@
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}template{display:none}[hidden]{display:none}
+
+html{
+  background-color: #111;
+  color: #fff;
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color-scheme: dark;
+}
+
+h1{
+  font-size: 3em;
+}
+
+.container{
+  max-width: 800px;
+  margin: 0px auto;
+  padding: 5em 1em;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.works{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 23em);
+  justify-content: center;
+  gap: 1em;
+}
+
+.work{
+  background-color: #222;
+  transition: background-color 0.1s ease;
+}
+
+.work:hover{
+  background-color: #333;
+}
+
+.work a{
+  display: block;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.work-img-container{
+  position: relative;
+  width: 100%;
+  height: 0px;
+  padding-bottom: 66.6%;
+  /* aspect-ratio はよ広まれ～ */
+  background-color: #222;
+}
+
+.work-img-container>img{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.work-ribbon{
+  display: inline-block;
+  padding: 0.3em 1em;
+  background-color: #bf360c;
+}
+
+.work-content{
+  padding: 1em;
+}
+
+.work h2{
+  margin: 0px;
+  margin-bottom: 1rem;
+  font-size: 1.3em;
+}
+
+.badges, .tags{
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  font-size: 0.7em;
+}
+
+.badges>li{
+  display: inline-block;
+  position: relative;
+  margin-right: 0.5em;
+  margin-bottom: 0.2em;
+  padding: 0.3em 0.5em;
+  font-weight: bold;
+  background-color: #555;
+  border-radius: 1em;
+  overflow: hidden;
+}
+
+.badges>li.has-icon{
+  padding-left: 2em;
+}
+
+.badges>li>.badge-icon{
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 1.4em;
+  font-size: 1.25em;
+  text-align: center;
+  line-height: 1.4;
+  background-color: #333;
+  border-radius: 50%;
+}
+
+.badges>li.course-2{
+  background-color: #880e4f;
+}
+
+.badges>li.course-2>.badge-icon{
+  background-color: #c2185b;
+}
+
+.badges>li.course-4{
+  background-color: #004d40;
+}
+
+.badges>li.course-4>.badge-icon{
+  background-color: #00796b;
+}
+
+.tags>li{
+  display: inline-block;
+  margin-right: 1em;
+  line-height: 1.5;
+}
+
+@keyframes fade-in {
+  0% { opacity: 0
+  }
+
+  100% { opacity: 1
+  }
+}
+
+@keyframes glitch-interval {
+  0% { opacity: 1
+  }
+
+  30% { opacity: 1
+  }
+
+  30.1% { opacity: 0
+  }
+
+  31% { opacity: 0
+  }
+
+  100% { opacity: 0
+  }
+}
+
+
+
+
+.work__group {
+  position: relative;
+  font-weight: 600;
+  overflow: hidden;
+}
+
+.work__group::before,.work__group::after {
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  color: #ffffff;
+  content: attr(data-text);
+  animation-duration: 2.4s;
+  animation-delay: 0s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse
+}
+
+.work__group::before {
+  left: 3px;
+  text-shadow: -3px 0px 0px #DA0039;
+  animation-name: work-title-glitch-pc-1;
+  animation: work-title-glitch-pc-1 2.4s linear 0s infinite alternate-reverse,glitch-interval 4000ms linear 0s infinite alternate
+}
+
+.work__group::after {
+  left: -1px;
+  text-shadow: 3px 0px 0px #88F0BF;
+  animation-name: work-title-glitch-pc-2;
+  animation-delay: 0.5s;
+  animation: work-title-glitch-pc-2 2.4s linear 0.5s infinite alternate-reverse,glitch-interval 4000ms linear 0s infinite alternate
+}
+
+@media (max-width: 599px) {
+  .work__group::before {
+      animation-name:work-title-glitch-sp-1,glitch-interval
+  }
+
+  .work__group::after {
+      animation-name: work-title-glitch-sp-2,glitch-interval
+  }
+}
+
+@keyframes work-title-glitch-pc-1 {
+  0% { clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%) }
+  3.33333% { clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%) }
+  6.66667% { clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%) }
+  10% { clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%) }
+  13.33333% { clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%) }
+  16.66667% { clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%) }
+  20% { clip-path: polygon(0% 38%, 100% 38%, 100% 4%, 0% 4%) }
+  23.33333% { clip-path: polygon(0% 73%, 100% 73%, 100% 98%, 0% 98%) }
+  26.66667% { clip-path: polygon(0% 62%, 100% 62%, 100% 15%, 0% 15%) }
+  30% { clip-path: polygon(0% 10%, 100% 10%, 100% 92%, 0% 92%) }
+  33.33333% { clip-path: polygon(0% 31%, 100% 31%, 100% 73%, 0% 73%) }
+  36.66667% { clip-path: polygon(0% 74%, 100% 74%, 100% 88%, 0% 88%) }
+  40% { clip-path: polygon(0% 36%, 100% 36%, 100% 83%, 0% 83%) }
+  43.33333% { clip-path: polygon(0% 14%, 100% 14%, 100% 97%, 0% 97%) }
+  46.66667% { clip-path: polygon(0% 75%, 100% 75%, 100% 31%, 0% 31%) }
+  50% { clip-path: polygon(0% 94%, 100% 94%, 100% 15%, 0% 15%) }
+  53.33333% { clip-path: polygon(0% 85%, 100% 85%, 100% 49%, 0% 49%) }
+  56.66667% { clip-path: polygon(0% 17%, 100% 17%, 100% 66%, 0% 66%) }
+  60% { clip-path: polygon(0% 92%, 100% 92%, 100% 66%, 0% 66%) }
+  63.33333% { clip-path: polygon(0% 38%, 100% 38%, 100% 4%, 0% 4%) }
+  66.66667% { clip-path: polygon(0% 77%, 100% 77%, 100% 19%, 0% 19%) }
+  70% { clip-path: polygon(0% 20%, 100% 20%, 100% 87%, 0% 87%) }
+  73.33333% { clip-path: polygon(0% 89%, 100% 89%, 100% 82%, 0% 82%) }
+  76.66667% { clip-path: polygon(0% 27%, 100% 27%, 100% 69%, 0% 69%) }
+  80% { clip-path: polygon(0% 83%, 100% 83%, 100% 43%, 0% 43%) }
+  83.33333% { clip-path: polygon(0% 76%, 100% 76%, 100% 24%, 0% 24%) }
+  86.66667% { clip-path: polygon(0% 51%, 100% 51%, 100% 13%, 0% 13%) }
+  90% { clip-path: polygon(0% 84%, 100% 84%, 100% 64%, 0% 64%) }
+  93.33333% { clip-path: polygon(0% 72%, 100% 72%, 100% 97%, 0% 97%) }
+  96.66667% { clip-path: polygon(0% 91%, 100% 91%, 100% 79%, 0% 79%) }
+  100% { clip-path: polygon(0% 9%, 100% 9%, 100% 26%, 0% 26%) }
+}
+
+@keyframes work-title-glitch-pc-2 {
+  0% { clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%) }
+  3.33333% { clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%) }
+  6.66667% { clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%) }
+  10% { clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%) }
+  13.33333% { clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%) }
+  16.66667% { clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%) }
+  20% { clip-path: polygon(0% 4%, 100% 4%, 100% 38%, 0% 38%) }
+  23.33333% { clip-path: polygon(0% 98%, 100% 98%, 100% 73%, 0% 73%) }
+  26.66667% { clip-path: polygon(0% 15%, 100% 15%, 100% 62%, 0% 62%) }
+  30% { clip-path: polygon(0% 92%, 100% 92%, 100% 10%, 0% 10%) }
+  33.33333% { clip-path: polygon(0% 73%, 100% 73%, 100% 31%, 0% 31%) }
+  36.66667% { clip-path: polygon(0% 88%, 100% 88%, 100% 74%, 0% 74%) }
+  40% { clip-path: polygon(0% 83%, 100% 83%, 100% 36%, 0% 36%) }
+  43.33333% { clip-path: polygon(0% 97%, 100% 97%, 100% 14%, 0% 14%) }
+  46.66667% { clip-path: polygon(0% 31%, 100% 31%, 100% 75%, 0% 75%) }
+  50% { clip-path: polygon(0% 15%, 100% 15%, 100% 62%, 0% 62%) }
+  53.33333% { clip-path: polygon(0% 49%, 100% 49%, 100% 85%, 0% 85%) }
+  56.66667% { clip-path: polygon(0% 66%, 100% 66%, 100% 17%, 0% 17%) }
+  60% { clip-path: polygon(0% 66%, 100% 66%, 100% 17%, 0% 17%) }
+  63.33333% { clip-path: polygon(0% 77%, 100% 77%, 100% 38%, 0% 38%) }
+  66.66667% { clip-path: polygon(0% 19%, 100% 19%, 100% 77%, 0% 77%) }
+  70% { clip-path: polygon(0% 87%, 100% 87%, 100% 20%, 0% 20%) }
+  73.33333% { clip-path: polygon(0% 82%, 100% 82%, 100% 89%, 0% 89%) }
+  76.66667% { clip-path: polygon(0% 69%, 100% 69%, 100% 27%, 0% 27%) }
+  80% { clip-path: polygon(0% 43%, 100% 43%, 100% 83%, 0% 83%) }
+  83.33333% { clip-path: polygon(0% 24%, 100% 24%, 100% 76%, 0% 76%) }
+  86.66667% { clip-path: polygon(0% 13%, 100% 13%, 100% 51%, 0% 51%) }
+  90% { clip-path: polygon(0% 64%, 100% 64%, 100% 84%, 0% 84%) }
+  93.33333% { clip-path: polygon(0% 97%, 100% 97%, 100% 14%, 0% 14%) }
+  96.66667% { clip-path: polygon(0% 79%, 100% 79%, 100% 91%, 0% 91%) }
+  100% { clip-path: polygon(0% 26%, 100% 26%, 100% 9%, 0% 9%) }
+}
+
+@keyframes work-title-glitch-sp-1 {
+  0% { clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%) }
+  3.33333% { clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%) }
+  6.66667% { clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%) }
+  10% { clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%) }
+  13.33333% { clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%) }
+  16.66667% { clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%) }
+  20% { clip-path: polygon(0% 38%, 100% 38%, 100% 4%, 0% 4%) }
+  23.33333% { clip-path: polygon(0% 73%, 100% 73%, 100% 98%, 0% 98%) }
+  26.66667% { clip-path: polygon(0% 62%, 100% 62%, 100% 15%, 0% 15%) }
+  30% { clip-path: polygon(0% 10%, 100% 10%, 100% 92%, 0% 92%) }
+  33.33333% { clip-path: polygon(0% 31%, 100% 31%, 100% 73%, 0% 73%) }
+  36.66667% { clip-path: polygon(0% 74%, 100% 74%, 100% 88%, 0% 88%) }
+  40% { clip-path: polygon(0% 36%, 100% 36%, 100% 83%, 0% 83%) }
+  43.33333% { clip-path: polygon(0% 14%, 100% 14%, 100% 97%, 0% 97%) }
+  46.66667% { clip-path: polygon(0% 75%, 100% 75%, 100% 31%, 0% 31%) }
+  50% { clip-path: polygon(0% 94%, 100% 94%, 100% 15%, 0% 15%) }
+  53.33333% { clip-path: polygon(0% 85%, 100% 85%, 100% 49%, 0% 49%) }
+  56.66667% { clip-path: polygon(0% 17%, 100% 17%, 100% 66%, 0% 66%) }
+  60% { clip-path: polygon(0% 92%, 100% 92%, 100% 66%, 0% 66%) }
+  63.33333% { clip-path: polygon(0% 38%, 100% 38%, 100% 4%, 0% 4%) }
+  66.66667% { clip-path: polygon(0% 77%, 100% 77%, 100% 19%, 0% 19%) }
+  70% { clip-path: polygon(0% 20%, 100% 20%, 100% 87%, 0% 87%) }
+  73.33333% { clip-path: polygon(0% 89%, 100% 89%, 100% 82%, 0% 82%) }
+  76.66667% { clip-path: polygon(0% 27%, 100% 27%, 100% 69%, 0% 69%) }
+  80% { clip-path: polygon(0% 83%, 100% 83%, 100% 43%, 0% 43%) }
+  83.33333% { clip-path: polygon(0% 76%, 100% 76%, 100% 24%, 0% 24%) }
+  86.66667% { clip-path: polygon(0% 51%, 100% 51%, 100% 13%, 0% 13%) }
+  90% { clip-path: polygon(0% 84%, 100% 84%, 100% 64%, 0% 64%) }
+  93.33333% { clip-path: polygon(0% 72%, 100% 72%, 100% 97%, 0% 97%) }
+  96.66667% { clip-path: polygon(0% 91%, 100% 91%, 100% 79%, 0% 79%) }
+  100% { clip-path: polygon(0% 9%, 100% 9%, 100% 26%, 0% 26%) }
+}
+
+@keyframes work-title-glitch-sp-2 {
+  0% { clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%) }
+  3.33333% { clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%) }
+  6.66667% { clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%) }
+  10% { clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%) }
+  13.33333% { clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%) }
+  16.66667% { clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%) }
+  20% { clip-path: polygon(0% 4%, 100% 4%, 100% 38%, 0% 38%) }
+  23.33333% { clip-path: polygon(0% 98%, 100% 98%, 100% 73%, 0% 73%) }
+  26.66667% { clip-path: polygon(0% 15%, 100% 15%, 100% 62%, 0% 62%) }
+  30% { clip-path: polygon(0% 92%, 100% 92%, 100% 10%, 0% 10%) }
+  33.33333% { clip-path: polygon(0% 73%, 100% 73%, 100% 31%, 0% 31%) }
+  36.66667% { clip-path: polygon(0% 88%, 100% 88%, 100% 74%, 0% 74%) }
+  40% { clip-path: polygon(0% 83%, 100% 83%, 100% 36%, 0% 36%) }
+  43.33333% { clip-path: polygon(0% 97%, 100% 97%, 100% 14%, 0% 14%) }
+  46.66667% { clip-path: polygon(0% 31%, 100% 31%, 100% 75%, 0% 75%) }
+  50% { clip-path: polygon(0% 15%, 100% 15%, 100% 62%, 0% 62%) }
+  53.33333% { clip-path: polygon(0% 49%, 100% 49%, 100% 85%, 0% 85%) }
+  56.66667% { clip-path: polygon(0% 66%, 100% 66%, 100% 17%, 0% 17%) }
+  60% { clip-path: polygon(0% 66%, 100% 66%, 100% 17%, 0% 17%) }
+  63.33333% { clip-path: polygon(0% 77%, 100% 77%, 100% 38%, 0% 38%) }
+  66.66667% { clip-path: polygon(0% 19%, 100% 19%, 100% 77%, 0% 77%) }
+  70% { clip-path: polygon(0% 87%, 100% 87%, 100% 20%, 0% 20%) }
+  73.33333% { clip-path: polygon(0% 82%, 100% 82%, 100% 89%, 0% 89%) }
+  76.66667% { clip-path: polygon(0% 69%, 100% 69%, 100% 27%, 0% 27%) }
+  80% { clip-path: polygon(0% 43%, 100% 43%, 100% 83%, 0% 83%) }
+  83.33333% { clip-path: polygon(0% 24%, 100% 24%, 100% 76%, 0% 76%) }
+  86.66667% { clip-path: polygon(0% 13%, 100% 13%, 100% 51%, 0% 51%) }
+  90% { clip-path: polygon(0% 64%, 100% 64%, 100% 84%, 0% 84%) }
+  93.33333% { clip-path: polygon(0% 97%, 100% 97%, 100% 14%, 0% 14%) }
+  96.66667% { clip-path: polygon(0% 79%, 100% 79%, 100% 91%, 0% 91%) }
+  100% { clip-path: polygon(0% 26%, 100% 26%, 100% 9%, 0% 9%) }
+}
