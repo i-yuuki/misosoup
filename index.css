@@ -82,6 +82,24 @@ h1{
   background-color: #bf360c;
 }
 
+.work-award{
+  display: inline-block;
+  position: relative;
+  padding: 0.3em 1em;
+  color: #ffeb3b;
+}
+
+.work-award::before{
+  content: "🏆";
+  font-family: "apple color emoji", "segoe ui emoji", emoji;
+}
+
+.work-award.award-large{
+  background-image: linear-gradient(270.09deg, #C89600 12.8%, #FFD25A 54.8%, #C89600 88.16%);
+  color: #000;
+  font-weight: bold;
+}
+
 .work-content{
   padding: 1em;
 }

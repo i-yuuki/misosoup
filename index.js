@@ -21,6 +21,7 @@ const app = new Vue({
   el: "#app",
   data(){
     return {
+      awards: {},
       works: [],
       worksSorted: [],
       school: "hal_tokyo",
@@ -30,6 +31,7 @@ const app = new Vue({
   },
   mounted(){
     this.fetchWorks();
+    this.fetchAwards();
   },
   methods: {
     fetchWorks(){
@@ -42,6 +44,11 @@ const app = new Vue({
         }
         this.works.splice(0, this.works.length, ...works);
         this.worksSorted.splice(0, this.worksSorted.length, ...works);
+      });
+    },
+    fetchAwards(){
+      fetch(`./data/awards.json`).then(res => res.json()).then(res => {
+        this.awards = res;
       });
     },
     shuffle(v){
@@ -57,6 +64,16 @@ const app = new Vue({
         this.filter[id] = pred(COURSES[id]);
       }
     },
+    getAward(work){
+      const award = this.awards[this.school]?.find(award => award.work_id === work.id);
+      // 配列を返すことでv-forで賞を変数みたいに扱えるっていうごりおし
+      if(!award) return [];
+      switch(award.type){
+        case "large": return [{name: award.title, type: award.type}];
+        case "detail": return [{name: award.giver, type: award.type}];
+        default: return [];
+      }
+    }
   },
   computed: {
     worksDisplay(){

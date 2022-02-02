@@ -81,6 +81,7 @@
             <img :src="work.thumbnail.url" loading="lazy" />
           </div>
           <div class="work-ribbon">{{ work.group_no }}</div>
+          <div v-for="award in getAward(work)" :class="['work-award', 'award-' + award.type]">{{ award.name }}</div>
           <div class="work-content">
             <h2>{{ work.title }}</h2>
             <ul class="badges">
