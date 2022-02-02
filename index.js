@@ -41,7 +41,7 @@ const app = new Vue({
           work.courseInfos = work.courses.map(id => COURSES[id]);
         }
         this.works.splice(0, this.works.length, ...works);
-        this.worksSorted.splice(0, this.works.length, ...works);
+        this.worksSorted.splice(0, this.worksSorted.length, ...works);
       });
     },
     shuffle(v){
