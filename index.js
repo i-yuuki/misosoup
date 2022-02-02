@@ -27,6 +27,7 @@ const app = new Vue({
       school: "hal_tokyo",
       showFilter: false,
       filter: Object.fromEntries(Object.keys(COURSES).map(id => [id, true])),
+      onlyShowAwarded: false,
     };
   },
   mounted(){
@@ -77,7 +78,11 @@ const app = new Vue({
   },
   computed: {
     worksDisplay(){
-      return this.worksSorted.filter(work => work.courses.some(id => this.filter[id]));
+      let works = this.worksSorted.filter(work => work.courses.some(id => this.filter[id]));
+      if(this.onlyShowAwarded){
+        works = works.filter(work => this.getAward(work).length > 0);
+      }
+      return works;
     }
   },
   watch: {

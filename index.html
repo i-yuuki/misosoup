@@ -55,11 +55,12 @@
           <button @click="shuffle(false)">元に戻す</button>
         </div>
         <div class="option">
-          <label>コースで絞り込み: </label>
+          <label>絞り込み: </label>
           <button @click="setFilter(course => true)">全部表示</button>
           <button @click="setFilter(course => course.years === 4)">4年制のみ表示</button>
           <button @click="setFilter(course => course.years === 2)">2年制のみ表示</button>
-          <label><input type="checkbox" v-model="showFilter" /> 詳細設定</label>
+          <label><input type="checkbox" v-model="showFilter" /> コース詳細設定</label>
+          <label><input type="checkbox" v-model="onlyShowAwarded" />受賞作品のみ表示</label>
         </div>
       </div>
       <div v-if="showFilter">
