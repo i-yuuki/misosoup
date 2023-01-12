@@ -40,7 +40,11 @@ const app = new Vue({
         const works = res.data;
         for(const work of works){
           work.url = `https://miraisozoten.com/${this.school}/works/${work.id}/`;
-          work.thumbnail.url = work.thumbnail.url.replace(/dev\.miraisozoten\.com/, "miraisozoten.com").replace(/\/item\//, "/assets/images/hal/thumbnails/").replace(/\.(jpe?g|png|bmp)$/, "_640x360.jpg");
+          if(work.thumbnail){
+            work.thumbnail.url = work.thumbnail.url.replace(/dev\.miraisozoten\.com/, "miraisozoten.com").replace(/\/item\//, "/assets/images/hal/thumbnails/").replace(/\.(jpe?g|png|bmp)$/, "_640x360.jpg");
+          }else{
+            work.thumbnail = {};
+          }
           work.courseInfos = work.courses.map(id => COURSES[id]);
         }
         this.works.splice(0, this.works.length, ...works);
