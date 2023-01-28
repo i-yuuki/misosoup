@@ -1,4 +1,32 @@
 [{
+  "year": 2023,
+  "courses": {
+    "1": {"name": "ゲーム制作コース", "years": 4},
+    "2": {"name": "ゲーム企画コース", "years": 4},
+    "3": {"name": "ゲームデザインコース", "years": 4},
+    "4": {"name": "CG・デザイン・アニメ4年制学科 CG映像コース", "years": 4},
+    "5": {"name": "アニメーター専攻", "years": 4},
+    "6": {"name": "イラストレーター専攻", "years": 4},
+    "7": {"name": "グラフィックデザイン学科 CGデザイナー専攻", "years": 4},
+    "8": {"name": "カーデザイン学科", "years": 4},
+    "9": {"name": "先端ロボット開発学科", "years": 4},
+    "10": {"name": "WEB開発コース", "years": 4},
+    "11": {"name": "高度情報処理コース", "years": 4},
+    "12": {"name": "ミュージック学科", "years": 4},
+    "13": {"name": "ゲーム学科", "years": 2},
+    "14": {"name": "ミュージック学科", "years": 2},
+    "15": {"name": "CGデザイン専攻", "years": 2},
+    "16": {"name": "CGアニメーション専攻", "years": 2},
+    "17": {"name": "WEB学科", "years": 2},
+    "18": {"name": "情報処理学", "years": 2}
+  },
+  "schools": [
+    {"id": "hal_tokyo", "name": "HAL東京"},
+    {"id": "hal_osaka", "name": "HAL大阪"},
+    {"id": "hal_nagoya", "name": "HAL名古屋"}
+  ],
+  "has_awards": false
+}, {
   "year": 2022,
   "courses": {
     "1": {"name": "ゲーム4年制学科ゲーム制作コース", "years": 4},
