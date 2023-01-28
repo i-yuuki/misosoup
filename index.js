@@ -1,20 +1,24 @@
 const COURSES = {
-  1: {name: "ゲーム4年制学科ゲーム制作コース", years: 4},
-  2: {name: "ゲーム企画学科", years: 4},
-  3: {name: "ゲームデザイン学科", years: 4},
-  4: {name: "CG映像学科", years: 4},
-  5: {name: "アニメ・イラスト学科", years: 4},
-  6: {name: "グラフィックデザイン学科", years: 4},
-  7: {name: "カーデザイン学科", years: 4},
-  8: {name: "先端ロボット開発学科", years: 4},
-  9: {name: "WEB開発学科", years: 4},
-  10: {name: "高度情報学科", years: 4},
-  11: {name: "ミュージック学科", years: 4},
-  12: {name: "ゲーム学科", years: 2},
-  13: {name: "ミュージック学科", years: 2},
-  14: {name: "CG学科", years: 2},
-  15: {name: "WEB学科", years: 2},
-  16: {name: "情報処理学科", years: 2},
+  // 4年制
+  1: {name: "ゲーム制作コース", years: 4},
+  2: {name: "ゲーム企画コース", years: 4},
+  3: {name: "ゲームデザインコース", years: 4},
+  4: {name: "CG・デザイン・アニメ4年制学科 CG映像コース", years: 4},
+  5: {name: "アニメーター専攻", years: 4},
+  6: {name: "イラストレーター専攻", years: 4},
+  7: {name: "グラフィックデザイン学科 CGデザイナー専攻", years: 4},
+  8: {name: "カーデザイン学科", years: 4},
+  9: {name: "先端ロボット開発学科", years: 4},
+  10: {name: "WEB開発コース", years: 4},
+  11: {name: "高度情報処理コース", years: 4},
+  12: {name: "ミュージック学科", years: 4},
+  // 2年制
+  13: {name: "ゲーム学科", years: 2},
+  14: {name: "ミュージック学科", years: 2},
+  15: {name: "CGデザイン専攻", years: 2},
+  16: {name: "CGアニメーション専攻", years: 2},
+  17: {name: "WEB学科", years: 2},
+  18: {name: "情報処理学", years: 2},
 };
 
 const app = new Vue({
@@ -40,7 +44,11 @@ const app = new Vue({
         const works = res.data;
         for(const work of works){
           work.url = `https://miraisozoten.com/${this.school}/works/${work.id}/`;
-          work.thumbnail.url = work.thumbnail.url.replace(/dev\.miraisozoten\.com/, "miraisozoten.com").replace(/\/item\//, "/assets/images/hal/thumbnails/").replace(/\.(jpe?g|png|bmp)$/, "_640x360.jpg");
+          if(work.thumbnail){
+            work.thumbnail.url = work.thumbnail.url.replace(/dev\.miraisozoten\.com/, "miraisozoten.com").replace(/\/item\//, "/assets/images/hal/thumbnails/").replace(/\.(jpe?g|png|bmp)$/, "_640x360.jpg");
+          }else{
+            work.thumbnail = {};
+          }
           work.courseInfos = work.courses.map(id => COURSES[id]);
         }
         this.works.splice(0, this.works.length, ...works);
