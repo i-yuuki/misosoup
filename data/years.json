@@ -25,7 +25,7 @@
     {"id": "hal_osaka", "name": "HAL大阪"},
     {"id": "hal_nagoya", "name": "HAL名古屋"}
   ],
-  "has_awards": false
+  "has_awards": true
 }, {
   "year": 2022,
   "courses": {
